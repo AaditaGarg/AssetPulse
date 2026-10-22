@@ -1,0 +1,15 @@
+# Starts a local MySQL for development:  docker compose up -d
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: assetpulse-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: assetpulse
+    ports:
+      - "3306:3306"
+    volumes:
+      - assetpulse-data:/var/lib/mysql
+volumes:
+  assetpulse-data:
